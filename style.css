@@ -1,0 +1,32 @@
+/* Bootstrap 已負責主要排版，這裡只放置客製化樣式。 */
+
+body {
+    font-family: Arial, "Microsoft JhengHei", sans-serif;
+    min-height: 100vh;
+}
+
+.card {
+    border-radius: 1rem;
+}
+
+.card-body {
+    line-height: 1.8;
+}
+
+.btn {
+    border-radius: 0.65rem;
+    font-weight: 600;
+}
+
+#result {
+    line-height: 1.8;
+    overflow-wrap: anywhere;
+}
+
+#result .card {
+    border-radius: 0.75rem;
+}
+
+#result p:last-child {
+    margin-bottom: 0;
+}
