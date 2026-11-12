@@ -1,4 +1,4 @@
-/* Bootstrap 已負責主要排版，這裡只放置客製化樣式。 */
+/* Bootstrap 已負責主要排版，這裡放置客製化樣式與動畫。 */
 
 body {
     font-family: Arial, "Microsoft JhengHei", sans-serif;
@@ -7,6 +7,7 @@ body {
 
 .card {
     border-radius: 1rem;
+    animation: fadeInUp 0.7s ease-out both;
 }
 
 .card-body {
@@ -16,6 +17,29 @@ body {
 .btn {
     border-radius: 0.65rem;
     font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.15s ease;
+}
+
+/* 滑鼠移到按鈕上方 */
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(13, 110, 253, 0.22);
+}
+
+/* 按下按鈕時 */
+.btn:active {
+    transform: translateY(1px) scale(0.97);
+    box-shadow: 0 2px 5px rgba(13, 110, 253, 0.18);
+}
+
+/* 鍵盤使用者聚焦按鈕時 */
+.btn:focus-visible {
+    outline: 3px solid rgba(13, 110, 253, 0.35);
+    outline-offset: 3px;
 }
 
 #result {
@@ -25,8 +49,34 @@ body {
 
 #result .card {
     border-radius: 0.75rem;
+    animation: fadeInUp 0.55s ease-out both;
 }
 
 #result p:last-child {
     margin-bottom: 0;
+}
+
+/* CSS Keyframes：由下往上淡入 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 尊重使用者系統的減少動態效果設定 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
